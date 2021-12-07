@@ -1,6 +1,7 @@
 package com.cleanup.todoc;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertSame;
 
@@ -40,6 +41,18 @@ public class TaskUnitTest {
     //--------------------
     //--   ABOUT TASKS  --
     //--------------------
+
+    //-- Test : Create 3 tasks and verify if task has been correctly created --
+    @Test
+    public void createTasks() {
+        final Task task1 = new Task( 1, "task 1", new Date().getTime());
+        final Task task2 = new Task( 2, "task 2", new Date().getTime());
+        final Task task3 = new Task( 3, "task 3", new Date().getTime());
+
+        assertEquals("task 1", task1.getName());
+        assertEquals("task 2", task2.getName());
+        assertNotEquals("task 4", task3.getName());
+    }
 
     //-- Test : Create 3 tasks and verify if tasks have been correctly sort from A to Z --
     @Test
